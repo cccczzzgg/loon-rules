@@ -11,6 +11,8 @@
   - IP-CIDR6: 4,312
   - USER-AGENT: 65
   - 合计: 126,630 条
+- `China-Direct.yaml` — 同一份规则的 Clash / Mihomo / FlClash 版（Rule Provider，domain，109,431 条 payload）
+- `China-Direct-IP.yaml` — 同一份规则的中国 IP 段版（Rule Provider，ipcidr，17,134 条 payload）
 
 ## 来源（已合并去重）
 
