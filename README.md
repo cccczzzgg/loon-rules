@@ -13,6 +13,7 @@
   - 合计: 126,630 条
 - `China-Direct.yaml` — 同一份规则的 Clash / Mihomo / FlClash 版（Rule Provider，domain，109,431 条 payload）
 - `China-Direct-IP.yaml` — 同一份规则的中国 IP 段版（Rule Provider，ipcidr，17,134 条 payload）
+- `WebRTC-Block.list` — WebRTC 防泄露规则，2026-11-14 生成（STUN 关键词域名 + STUN/TURN 端口共 12 条；Loon 导入时策略选 REJECT，顺序放在所有远程规则最上面）
 
 ## 来源（已合并去重）
 
@@ -40,3 +41,15 @@
 
 - Loon 官方文档说支持百万级规则，20 万条 DOMAIN-SUFFIX 查询在 1ms 内，这份 12.6 万条不用担心性能。
 - 域名规则没命中时，Loon 会解析 DNS 再匹配 IP 规则，所以即使某个域名漏了，只要服务器 IP 在中国，也会走 DIRECT。
+
+## WebRTC 防泄露怎么导入
+
+1. Loon → 规则 → 右上角 `+`
+2. 选择“从 URL 导入”（远程规则）
+3. 粘贴：
+   ```
+   https://raw.githubusercontent.com/cccczzzgg/loon-rules/main/WebRTC-Block.list
+   ```
+4. 策略选 `REJECT`
+5. 顺序：拖到所有远程规则的**最上面**（必须在 China-Direct 之上）
+6. 配套设置（在当前配置的 `[General]` 段加两行）：`disable-stun = true`、`udp-fallback-mode = REJECT`

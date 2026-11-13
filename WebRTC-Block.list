@@ -1,0 +1,19 @@
+# NAME: WebRTC-Block (WebRTC 防泄露)
+# AUTHOR: ZeGang / Muse
+# UPDATED: 2026-11-14
+# POLICY: REJECT (在 Loon 里订阅时策略选 REJECT, 顺序拖到所有远程规则最上面, 必须在 China-Direct 之上)
+# 说明: 只拦 WebRTC 找公网 IP 用的 STUN/TURN 通道 (含 stun 关键词域名 + 3478/3479/5349/19302-19309 端口),
+#       不拦任何正常网页/视频/游戏流量, 节点速度不受影响。Loon 端口规则官方名是 DEST-PORT (不是 DST-PORT)。
+# 配套 (二选一即可, 两个都做最稳): 在当前配置 [General] 段加 disable-stun = true 和 udp-fallback-mode = REJECT。
+DOMAIN-KEYWORD,stun
+DEST-PORT,3478
+DEST-PORT,3479
+DEST-PORT,5349
+DEST-PORT,19302
+DEST-PORT,19303
+DEST-PORT,19304
+DEST-PORT,19305
+DEST-PORT,19306
+DEST-PORT,19307
+DEST-PORT,19308
+DEST-PORT,19309
