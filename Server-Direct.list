@@ -1,0 +1,9 @@
+# NAME: Server-Direct (自有服务器直连)
+# AUTHOR: ZeGang / Muse
+# UPDATED: 2026-11-25
+# SOURCE: 手工维护 — 大阪 / 圣何塞甲骨文公网 IP
+# POLICY: DIRECT (不走代理，避免节点故障时 SSH 救命通道跟着断)
+# USAGE (Loon): 规则 -> 右上角 + -> 从 URL 导入 -> 粘贴 https://raw.githubusercontent.com/cccczzzgg/loon-rules/main/Server-Direct.list -> 策略选 DIRECT，放在所有规则最上面
+
+IP-CIDR,152.69.192.38/32,no-resolve
+IP-CIDR,146.235.193.247/32,no-resolve
